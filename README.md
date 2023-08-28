@@ -3,7 +3,8 @@ a self-supervised sentence embedding framework that enhances both generalization
 
 
 #### Train the RobustEmbed embeddings to generate robust text represnetation
-python -m torch.distributed.launch --nproc_per_node 4 --master_port $(expr $RANDOM + 1000) train_adv_sts.py \
+```bash
+python -m torch.distributed.launch --nproc_per_node 4 --master_port $(expr $RANDOM + 1000) train2.py \
     --model_name_or_path bert-base-uncased \
     --train_file data/wiki1m_for_simcse.txt \
     --output_dir /result/SimSCE12_bert \
@@ -21,12 +22,11 @@ python -m torch.distributed.launch --nproc_per_node 4 --master_port $(expr $RAND
     --temp 0.05 \
     --do_train \
     --fp16 \
-    "$@"
-
-
+```
 
 #### Evaluate the RobustEmbed embeddings on STS and Transfer tasks
-python -m torch.distributed.launch --nproc_per_node 4 --master_port $(expr $RANDOM + 1000) train_adv_sts.py \
+```bash
+python -m torch.distributed.launch --nproc_per_node 4 --master_port $(expr $RANDOM + 1000) train2.py \
     --model_name_or_path /result/SimSCE12_bert \
     --train_file data/wiki1m_for_simcse.txt \
     --output_dir /result/SimSCE12_bert \
@@ -44,4 +44,4 @@ python -m torch.distributed.launch --nproc_per_node 4 --master_port $(expr $RAND
     --temp 0.05 \
     --do_eval \
     --fp16 \
-    "$@"
+```
