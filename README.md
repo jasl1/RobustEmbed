@@ -45,3 +45,10 @@ python -m torch.distributed.launch --nproc_per_node 4 --master_port $(expr $RAND
     --do_eval \
     --fp16 \
 ```
+
+#### Evaluate the RobustEmbed embeddings on STS and Transfer tasks
+
+```python
+import markdown
+html = markdown.markdown(your_text_string)
+```
