@@ -46,7 +46,8 @@ python -m torch.distributed.launch --nproc_per_node 4 --master_port $(expr $RAND
     --fp16 \
 ```
 
-#### Evaluate the RobustEmbed embeddings on STS and Transfer tasks
+#### Evaluate the RobustEmbed embeddings using various adversarial attack techniques.
+The following code snippet evaluates the RobustEmbed embeddings using the TextFooler adversarial attack for the IMDB task. Users can switch to different adversarial attacks by uncommenting the corresponding attack technique in the code. Additionally, users can load another dataset (e.g., sst2 or cola) to assess the embeddings for a different task.
 
 ```python
 import textattack
